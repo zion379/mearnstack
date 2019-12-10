@@ -31,6 +31,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
+router.get('/', (req, res) => {
+    res.send("server is up and running");
+});
+
 // this is our get method
 // this method fetches all available data in our database
 router.get('/getData', (req, res) => {
