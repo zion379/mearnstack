@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const Data = require('./data');
 
-const API_PORT = (process.env.port || 3001)
+const PORT = process.env.port || 3001;
 const app = express();
 app.use(cors());
 const router = express.Router();
@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 
 router.get('/', (req, res) => {
-    res.send("server is up and running");
+    res.send("server is up and running")
 });
 
 // this is our get method
@@ -89,4 +89,4 @@ router.post('/putData', (req, res) => {
 app.use('/api', router);
 
 // launch our backend into a port
-app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
+app.listen(PORT, () => console.log(`LISTENING ON PORT ${PORT}`));
